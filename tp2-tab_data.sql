@@ -106,9 +106,8 @@ VALUES	('EFECTIVO'),
 
 #Llenado de tabla de cantidad de cuotas.
 INSERT INTO total_installments (total_installments)
-VALUES	(3),
-		(6),
-        (12);
+VALUES	(1),
+		(3);
 
 #Llenado de tabla de grupos.
 INSERT INTO teams (id_team, sell_objective)
