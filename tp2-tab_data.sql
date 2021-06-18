@@ -113,8 +113,8 @@ VALUES	(3),
 #Llenado de tabla de grupos.
 INSERT INTO teams (id_team, sell_objective)
 VALUES
-	(1, 5),
-    (2, 10),
-    (3, 15),
-    (4, 20),
-    (5, 25);
+	(1, 0),
+    (2, 5),
+    (3, 10),
+    (4, 15),
+    (5, 20);
