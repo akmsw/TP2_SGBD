@@ -171,7 +171,7 @@ CREATE TABLE IF NOT EXISTS installments (
 CREATE TABLE IF NOT EXISTS payments (
 	id_payment INT NOT NULL AUTO_INCREMENT,
     id_installment INT NOT NULL,
-    pay_date DATE NOT NULL,
+    pay_date DATE,
     
     PRIMARY KEY (id_payment),
 
