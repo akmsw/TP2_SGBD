@@ -157,7 +157,6 @@ CREATE TABLE IF NOT EXISTS teams_record (
 #Tabla de cuotas.
 CREATE TABLE IF NOT EXISTS installments (
 	id_installment INT NOT NULL AUTO_INCREMENT,
-    id_trade INT NOT NULL,
     id_raffle INT NOT NULL,
     expiring_date DATE NOT NULL,
     
