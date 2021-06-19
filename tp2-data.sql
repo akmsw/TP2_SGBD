@@ -167,3 +167,11 @@ VALUES
     (48,  2, 2021),
     (49,  3, 2021),
     (50,  4, 2021);
+
+#Llenado de la tabla de cuotas.
+INSERT INTO installments
+			(
+				id_trade,
+                id_raffle,
+                expiring_date
+            )
