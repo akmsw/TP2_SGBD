@@ -2,50 +2,54 @@ USE raffles_management_db;
 
 #Llenado de tabla de géneros.
 INSERT INTO genders (gender)
-VALUES	('HOMBRE'),
-		('MUJER'),
-		('OTRO');
+VALUES
+    ('HOMBRE'),
+	('MUJER'),
+	('OTRO');
 
 #Llenado de tabla de estados civiles.
 INSERT INTO marital_statuses (marital_status)
-VALUES 	('SOLTERO'),
-		('CASADO'),
-        ('DIVORCIADO'),
-        ('VIUDO'),
-        ('OTRO');
+VALUES 
+    ('SOLTERO'),
+	('CASADO'),
+    ('DIVORCIADO'),
+    ('VIUDO'),
+    ('OTRO');
 
 #Llenado de tabla de países.
 INSERT INTO countries (country_name)
-VALUES	('ARGENTINA');
+VALUES
+    ('ARGENTINA');
 
 #Llenado de tabla de provincias de Argentina.
 SET @ID_ARG = (SELECT id_country FROM countries WHERE country_name = 'ARGENTINA'); #Almacenamos el ID del país 'ARGENTINA'
 																				   #para hacer la consulta una sola vez.
 
 INSERT INTO provinces (id_country, province_name)
-VALUES	(@ID_ARG, 'CORDOBA'),
-		(@ID_ARG, 'BS. AS.'),
-        (@ID_ARG, 'STA. FE'),
-        (@ID_ARG, 'MENDOZA'),
-        (@ID_ARG, 'JUJUY'),
-        (@ID_ARG, 'SALTA'),
-        (@ID_ARG, 'MISIONES'),
-        (@ID_ARG, 'STGO. EST.'),
-        (@ID_ARG, 'CHACO'),
-        (@ID_ARG, 'SAN JUAN'),
-        (@ID_ARG, 'SAN LUIS'),
-        (@ID_ARG, 'NEUQUEN'),
-        (@ID_ARG, 'RIO NEGRO'),
-        (@ID_ARG, 'CATAMARCA'),
-        (@ID_ARG, 'CHUBUT'),
-        (@ID_ARG, 'CORRIENTES'),
-        (@ID_ARG, 'STA. CRUZ'),
-        (@ID_ARG, 'T. FUEGO'),
-        (@ID_ARG, 'TUCUMAN'),
-        (@ID_ARG, 'LA PAMPA'),
-        (@ID_ARG, 'FORMOSA'),
-        (@ID_ARG, 'LA RIOJA'),
-        (@ID_ARG, 'ENTRE RIOS');
+VALUES
+    (@ID_ARG, 'CORDOBA'),
+    (@ID_ARG, 'BS. AS.'),
+    (@ID_ARG, 'STA. FE'),
+    (@ID_ARG, 'MENDOZA'),
+    (@ID_ARG, 'JUJUY'),
+    (@ID_ARG, 'SALTA'),
+    (@ID_ARG, 'MISIONES'),
+    (@ID_ARG, 'STGO. EST.'),
+    (@ID_ARG, 'CHACO'),
+    (@ID_ARG, 'SAN JUAN'),
+    (@ID_ARG, 'SAN LUIS'),
+    (@ID_ARG, 'NEUQUEN'),
+    (@ID_ARG, 'RIO NEGRO'),
+    (@ID_ARG, 'CATAMARCA'),
+    (@ID_ARG, 'CHUBUT'),
+    (@ID_ARG, 'CORRIENTES'),
+    (@ID_ARG, 'STA. CRUZ'),
+    (@ID_ARG, 'T. FUEGO'),
+    (@ID_ARG, 'TUCUMAN'),
+    (@ID_ARG, 'LA PAMPA'),
+    (@ID_ARG, 'FORMOSA'),
+    (@ID_ARG, 'LA RIOJA'),
+    (@ID_ARG, 'ENTRE RIOS');
 
 #Llenado de tabla de ciudades de provincias de Argentina.
 #Almacenamos el ID de cada provincia para hacer la consulta una sola vez.
@@ -74,40 +78,43 @@ SET @ID_LRJ = (SELECT id_province FROM provinces WHERE province_name = 'LA RIOJA
 SET @ID_ERS = (SELECT id_province FROM provinces WHERE province_name = 'ENTRE RIOS');
 
 INSERT INTO cities (id_province, city_name)
-VALUES	(@ID_CBA, 'CORDOBA'),
-		(@ID_BAS, 'LA PLATA'),
-        (@ID_SFE, 'STA. FE'),
-		(@ID_MZA, 'MENDOZA'),
-        (@ID_JJY, 'JUJUY'),
-        (@ID_SLT, 'SALTA'),
-        (@ID_MIS, 'POSADAS'),
-        (@ID_SES, 'STGO. EST.'),
-        (@ID_CHA, 'RESIST.'),
-        (@ID_SJU, 'SAN JUAN'),
-        (@ID_SLU, 'SAN LUIS'),
-        (@ID_NQN, 'NEUQUEN'),
-        (@ID_RNG, 'VIEDMA'),
-        (@ID_CTM, 'CATAMARCA'),
-        (@ID_CHB, 'RAWSON'),
-        (@ID_CTS, 'CORRIENTES'),
-        (@ID_SCR, 'RIO GALL.'),
-        (@ID_TDF, 'USHUAIA'),
-        (@ID_TCM, 'TUCUMAN'),
-        (@ID_PMP, 'STA. ROSA'),
-        (@ID_FOR, 'FORMOSA'),
-        (@ID_LRJ, 'LA RIOJA'),
-        (@ID_ERS, 'PARANA');
+VALUES
+    (@ID_CBA, 'CORDOBA'),
+    (@ID_BAS, 'LA PLATA'),
+    (@ID_SFE, 'STA. FE'),
+    (@ID_MZA, 'MENDOZA'),
+    (@ID_JJY, 'JUJUY'),
+    (@ID_SLT, 'SALTA'),
+    (@ID_MIS, 'POSADAS'),
+    (@ID_SES, 'STGO. EST.'),
+    (@ID_CHA, 'RESIST.'),
+    (@ID_SJU, 'SAN JUAN'),
+    (@ID_SLU, 'SAN LUIS'),
+    (@ID_NQN, 'NEUQUEN'),
+    (@ID_RNG, 'VIEDMA'),
+    (@ID_CTM, 'CATAMARCA'),
+    (@ID_CHB, 'RAWSON'),
+    (@ID_CTS, 'CORRIENTES'),
+    (@ID_SCR, 'RIO GALL.'),
+    (@ID_TDF, 'USHUAIA'),
+    (@ID_TCM, 'TUCUMAN'),
+    (@ID_PMP, 'STA. ROSA'),
+    (@ID_FOR, 'FORMOSA'),
+    (@ID_LRJ, 'LA RIOJA'),
+    (@ID_ERS, 'PARANA');
 
 #Llenado de tabla de métodos de pago.
 INSERT INTO payment_methods (payment_method)
-VALUES	('EFECTIVO'),
-		('T. DEBITO'),
-        ('T. CREDITO');
+VALUES
+    ('EFECTIVO'),
+	('T. DEBITO'),
+    ('T. CREDITO');
 
 #Llenado de tabla de cantidad de cuotas.
 INSERT INTO total_installments (total_installments)
-VALUES	(1),
-		(3);
+VALUES
+    (1),
+	(3);
 
 #Llenado de tabla de grupos.
 INSERT INTO teams (id_team, sell_objective)
