@@ -162,7 +162,6 @@ CREATE TABLE IF NOT EXISTS installments (
     
     PRIMARY KEY (id_installment),
 
-    FOREIGN KEY (id_trade) REFERENCES trades (id_trade),
     FOREIGN KEY (id_raffle) REFERENCES raffles (id_raffle)
 );
 
