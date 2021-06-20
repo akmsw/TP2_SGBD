@@ -29,7 +29,7 @@ VALUES
     ( 1, 3,  1,    'FRANCO',     'VAIRA', 38730172, 	 'CALLE MESSIRVE 845', '3564605466', 		      'piola_guy17@jmail.com', '1995-10-20', 5, '2019-05-20');
 
 #Llenado de la tabla de clientes.
-INSERT INTO customers 
+INSERT INTO customers
 			(
 				first_name,
                 last_name,
