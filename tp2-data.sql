@@ -117,13 +117,14 @@ VALUES
 	(3);
 
 #Llenado de tabla de grupos.
+#El sell objective representa la cantidad de rifas que se necesitan para pasar del grupo actual al siguiente.
 INSERT INTO teams (id_team, sell_objective)
 VALUES
-	(1, 0),
+	(1, 5),
     (2, 5),
-    (3, 10),
-    (4, 15),
-    (5, 20);
+    (3, 5),
+    (4, 5),
+    (5, 5);
 
 #Llenado de la tabla de afiliados.
 INSERT INTO affiliates
