@@ -8,15 +8,51 @@ en el que vendió mas rifas, la fecha de la última vez que vendió una rifa de 
 Si varios grupos tienen la misma cantidad de rifas vendidas por el afiliado, poner uno cualquiera de ellos.
 */
 
-/*SELECT
-	*
-    NOMBREAFILIADO
-    APELLIDOAFILIADO
-    GRUPO
-    FECHAULT
+SELECT
+    NOMBREAFILIADO,
+    APELLIDOAFILIADO,
+    MAX(GRUPO) AS GRUPO,
+    MAX(FECHAULT) AS FECHAULT,
     CANTPAGOS
-/*FROM
-	affiliates;*/
+FROM
+    (
+        SELECT
+            a.first_name AS NOMBREAFILIADO,
+            a.last_name AS APELLIDOAFILIADO,
+            t.id_team AS GRUPO,
+            COUNT(tr.id_trade) AS CANTRIFAS,
+            MAX(purchase_date) AS FECHAULT,
+            COUNT(DISTINCT p.id_payment) AS CANTPAGOS
+        FROM
+            teams AS t
+        CROSS JOIN
+            affiliates AS a
+        LEFT JOIN
+            trades AS tr
+            ON  a.id_affiliate = tr.id_affiliate AND
+                tr.belonging_group = t.id_team
+		JOIN
+			raffles AS r
+            USING(id_trade)
+		JOIN
+			installments AS i
+            USING(id_raffle)
+		JOIN
+			payments AS p
+            USING(id_installment)
+        GROUP BY
+            a.id_affiliate,
+            t.id_team,
+            r.id_raffle
+        ORDER BY
+            a.id_affiliate,
+            GRUPO
+    ) query2
+WHERE
+    CANTRIFAS != 0
+GROUP BY
+    NOMBREAFILIADO,
+    APELLIDOAFILIADO;
 
 /*
 Query 2/3 TP2
@@ -44,7 +80,7 @@ GROUP BY
     t.id_team
 ORDER BY
 	a.id_affiliate,
-    GRUPO
+    GRUPO;
 
 /*
 Query 3/3 TP2
@@ -117,4 +153,4 @@ JOIN
 GROUP BY
     c.id_customer
 HAVING
-    CANTCOMPRAS > 5
+    CANTCOMPRAS > 5;
