@@ -6,14 +6,14 @@ USE raffles_management_db;
 INSERT INTO genders (gender)
 VALUES
     ('HOMBRE'),
-	('MUJER'),
-	('OTRO');
+    ('MUJER'),
+    ('OTRO');
 
 #Llenado de tabla de estados civiles.
 INSERT INTO marital_statuses (marital_status)
 VALUES 
     ('SOLTERO'),
-	('CASADO'),
+    ('CASADO'),
     ('DIVORCIADO'),
     ('VIUDO'),
     ('OTRO');
@@ -109,20 +109,20 @@ VALUES
 INSERT INTO payment_methods (payment_method)
 VALUES
     ('EFECTIVO'),
-	('T. DEBITO'),
+    ('T. DEBITO'),
     ('T. CREDITO');
 
 #Llenado de tabla de cantidad de cuotas.
 INSERT INTO total_installments (total_installments)
 VALUES
     (1),
-	(3);
+    (3);
 
 #Llenado de tabla de grupos.
 #El sell objective representa la cantidad de rifas que se necesitan para pasar del grupo actual al siguiente.
 INSERT INTO teams (id_team, sell_objective)
 VALUES
-	(1, 5),
+    (1, 5),
     (2, 5),
     (3, 5),
     (4, 5),
@@ -130,10 +130,10 @@ VALUES
 
 #Llenado de la tabla de afiliados.
 INSERT INTO affiliates
-			(
-				id_gender,
+	    (
+	        id_gender,
                 id_marital_status,
-				id_city,
+		id_city,
                 first_name,
                 last_name,
                 dni,
@@ -143,29 +143,29 @@ INSERT INTO affiliates
                 birth_date,
                 current_coursing_year,
                 checkin_date
-			)
+	    )
 VALUES
-	( 2, 2,  5,    'JIMENA',    'CESANO', 40406691,  'CALLE SUSANA HORIA 555', '3886617894', 			      'changes@tupac.com', '1997-09-12', 5, '2016-06-09'),
-    ( 1, 5,  1, 'FRANCISCO',    'BONINO', 41279796, 	       'CALLE JON 78', '3512621750', 			   'xinaras@warmmail.com', '1998-06-04', 5, '2017-04-06'),
-    ( 2, 3,  4,  'AGUSTINA', 'FERNANDEZ', 40787812,   'BV. ESTEBAN QUITO 367', '2615542114', 			  'bigmomma@warmmail.com', '1998-05-01', 5, '2017-04-23'),
-    ( 2, 4, 23,     'SOFIA', 'RODRIGUEZ', 41476582, 	  'CALLE CORNETA 147', '3435682431', 			     'oof97@warmmail.com', '1997-11-27', 4, '2017-05-11'),
-	( 1, 1, 13, 	'MATEO',    'MERINO', 41232347, 	       'AV. PAPA 123', '2984865929', 'relampago_marcelinho@maremarix.com', '1999-01-25', 5, '2017-08-05'),
-    ( 1, 4, 13,     'LIHUE',      'LUNA', 39129465, 	     'CALLE FALSA 45', '2944345507', 		  'liwex.420forever@lmao.com', '1995-12-08', 5, '2018-06-12'),
+    ( 2, 2,  5,    'JIMENA',    'CESANO', 40406691,  'CALLE SUSANA HORIA 555', '3886617894', 		      'changes@tupac.com', '1997-09-12', 5, '2016-06-09'),
+    ( 1, 5,  1, 'FRANCISCO',    'BONINO', 41279796, 	       'CALLE JON 78', '3512621750', 		   'xinaras@warmmail.com', '1998-06-04', 5, '2017-04-06'),
+    ( 2, 3,  4,  'AGUSTINA', 'FERNANDEZ', 40787812,   'BV. ESTEBAN QUITO 367', '2615542114', 		  'bigmomma@warmmail.com', '1998-05-01', 5, '2017-04-23'),
+    ( 2, 4, 23,     'SOFIA', 'RODRIGUEZ', 41476582, 	  'CALLE CORNETA 147', '3435682431', 		     'oof97@warmmail.com', '1997-11-27', 4, '2017-05-11'),
+    ( 1, 1, 13,     'MATEO',    'MERINO', 41232347, 	       'AV. PAPA 123', '2984865929', 'relampago_marcelinho@maremarix.com', '1999-01-25', 5, '2017-08-05'),
+    ( 1, 4, 13,     'LIHUE',      'LUNA', 39129465, 	     'CALLE FALSA 45', '2944345507', 	      'liwex.420forever@lmao.com', '1995-12-08', 5, '2018-06-12'),
     ( 3, 2, 21,     'CESAR',   'SALDAÑA', 41278336,    'AV. AQUILES BAILO 22', '3717653321', 	    'alexandr_kogan123@jmail.com', '1998-04-09', 4, '2018-08-01'),
-    ( 1, 1,  1,  'FEDERICO',  'CORONATI', 40502859, 'BV. ARMANDO PAREDES 658', '3537659447', 			 'portuguencis@enzot.com', '1997-10-02', 5, '2018-09-17'),
+    ( 1, 1,  1,  'FEDERICO',  'CORONATI', 40502859, 'BV. ARMANDO PAREDES 658', '3537659447', 		 'portuguencis@enzot.com', '1997-10-02', 5, '2018-09-17'),
     ( 2, 5, 18,    'EMILIA', 'GUTIERREZ', 41320666, 	 'AV. ELSA PATERO 91', '2964781456', 'empanadasdecarne.forever@jmail.com', '1998-01-31', 5, '2019-04-15'),
-    ( 1, 3,  1,    'FRANCO',     'VAIRA', 38730172, 	 'CALLE MESSIRVE 845', '3564605466', 		      'piola_guy17@jmail.com', '1995-10-20', 5, '2019-05-20');
+    ( 1, 3,  1,    'FRANCO',     'VAIRA', 38730172, 	 'CALLE MESSIRVE 845', '3564605466', 		  'piola_guy17@jmail.com', '1995-10-20', 5, '2019-05-20');
 
 #Llenado de la tabla de clientes.
 INSERT INTO customers
-			(
-				first_name,
+	    (
+		first_name,
                 last_name,
                 dni,
                 phone_number
             )
 VALUES
-	(  	 'PAULA',   'LOPEZ', 41665873, 3513084314),
+    (  	 'PAULA',   'LOPEZ', 41665873, 3513084314),
     (	 'JULIO',   'LUJAN', 38179555, 2960010054),
     (	  'HUGO',   'BAZAN', 39471121, 3887141495),
     (	 'MARIA', 'GUILLEN', 40401998, 3538111112),
@@ -178,14 +178,14 @@ VALUES
 
 #Llenado de la tabla de compras.
 INSERT INTO trades
-			(
-				id_customer,
+	    (
+		id_customer,
                 id_affiliate,
                 id_payment_method,
                 id_total_installments,
                 purchase_date,
                 belonging_group
-			)
+	    )
 VALUES
 	( 7,  1, 3, 1, '2016-10-26', 1),
 	( 8,  1, 1, 1, '2016-12-13', 1),
@@ -240,8 +240,8 @@ VALUES
  
 #Llenado de la tabla de rifas.
 INSERT INTO raffles
-			(
-				id_trade,
+	    (
+		id_trade,
                 serial_no,
                 print_year
             )
@@ -299,7 +299,7 @@ VALUES
 
 #Llenado de la tabla de cuotas.
 INSERT INTO installments
-			(
+	    (
                 id_raffle,
                 expiring_date
             )
@@ -401,8 +401,8 @@ VALUES
 
 #Llenado de la tabla de pagos.
 INSERT INTO payments
-			(
-				id_installment,
+	    (
+		id_installment,
                 pay_date
             )
 VALUES
