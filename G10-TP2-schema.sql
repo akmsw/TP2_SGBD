@@ -110,6 +110,7 @@ CREATE TABLE IF NOT EXISTS trades (
     id_payment_method INT NOT NULL,
     id_total_installments INT NOT NULL,
     purchase_date DATE,
+    belonging_group INT NOT NULL,
     
     PRIMARY KEY (id_trade),
 
