@@ -1,3 +1,23 @@
+# TP2 SISTEMAS DE GESTIÓN DE BASES DE DATOS - GRUPO 10 - TEMA 5
+
+/*
+Query 1/3 TP2
+
+Elaborar una consulta SQL que genere un listado que contenga todos los afiliados con su nombre y apellido y que además muestre cuál es el grupo (ID de grupo)
+en el que vendió mas rifas, la fecha de la última vez que vendió una rifa de ese grupo y la cantidad de pagos registrados de esa rifa.
+Si varios grupos tienen la misma cantidad de rifas vendidas por el afiliado, poner uno cualquiera de ellos.
+*/
+
+SELECT
+	*
+    /*NOMBREAFILIADO
+    APELLIDOAFILIADO
+    GRUPO
+    FECHAULT
+    CANTPAGOS*/
+FROM
+	affiliates;
+
 /*
 Query 2/3 TP2
 
