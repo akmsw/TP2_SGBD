@@ -25,7 +25,7 @@ VALUES
 
 #Llenado de tabla de provincias de Argentina.
 SET @ID_ARG = (SELECT id_country FROM countries WHERE country_name = 'ARGENTINA'); #Almacenamos el ID del país 'ARGENTINA'
-																				   #para hacer la consulta una sola vez.
+										   #para hacer la consulta una sola vez.
 
 INSERT INTO provinces (id_country, province_name)
 VALUES
