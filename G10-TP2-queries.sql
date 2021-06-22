@@ -8,15 +8,15 @@ en el que vendió mas rifas, la fecha de la última vez que vendió una rifa de 
 Si varios grupos tienen la misma cantidad de rifas vendidas por el afiliado, poner uno cualquiera de ellos.
 */
 
-SELECT
+/*SELECT
 	*
-    /*NOMBREAFILIADO
+    NOMBREAFILIADO
     APELLIDOAFILIADO
     GRUPO
     FECHAULT
-    CANTPAGOS*/
-FROM
-	affiliates;
+    CANTPAGOS
+/*FROM
+	affiliates;*/
 
 /*
 Query 2/3 TP2
@@ -29,21 +29,18 @@ Ordenar por afiliado y por grupo según el criterio de recaudación total en el 
 SELECT
 	a.first_name AS NOMBREAFILIADO,
     a.last_name AS APELLIDOAFILIADO,
-    tea.id_team AS GRUPO,
-    COUNT(tra.id_trade) AS CANTRIFAS
+	tea.id_team,
+    COUNT(DISTINCT t.id_trade) AS CANTRIFAS
 FROM
-	affiliates a
+	affiliates AS a
+JOIN
+	trades AS t
+	USING(id_affiliate)
 CROSS JOIN
-	teams tea
-LEFT JOIN
-	trades tra
-    ON tea.id_team = tra.belonging_group
+	teams AS tea
 GROUP BY
 	a.id_affiliate,
     tea.id_team
-ORDER BY
-	a.id_affiliate,
-    tea.id_team;
 
 /*
 Query 3/3 TP2
@@ -86,7 +83,7 @@ JOIN
     ON c.id_customer = customer_idLPD
 JOIN
 	(
-		#Busco los datos de los clientes que deban más de 3 cuotas vencidas.
+		# Busco los datos de los clientes que deban más de 3 cuotas vencidas.
 		SELECT
 			DISTINCT c.id_customer AS customer_idUEI,
 			COUNT(p.id_payment) AS unpayed_expired_installments
