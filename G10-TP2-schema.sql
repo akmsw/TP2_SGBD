@@ -10,7 +10,7 @@ USE raffles_management_db;
 
 #Tabla de géneros tabulados.
 CREATE TABLE IF NOT EXISTS genders (
-	id_gender INT NOT NULL AUTO_INCREMENT,
+    id_gender INT NOT NULL AUTO_INCREMENT,
     gender VARCHAR (10) NOT NULL,
     
     PRIMARY KEY (id_gender)
@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS genders (
 
 #Tabla de estados civiles tabulados.
 CREATE TABLE IF NOT EXISTS marital_statuses (
-	id_marital_status INT NOT NULL AUTO_INCREMENT,
+    id_marital_status INT NOT NULL AUTO_INCREMENT,
     marital_status VARCHAR (10) NOT NULL,
     
     PRIMARY KEY (id_marital_status)
@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS marital_statuses (
 
 #Tabla de países tabulados.
 CREATE TABLE IF NOT EXISTS countries (
-	id_country INT NOT NULL AUTO_INCREMENT,
+    id_country INT NOT NULL AUTO_INCREMENT,
     country_name VARCHAR (10) NOT NULL,
     
     PRIMARY KEY (id_country)
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS countries (
 
 #Tabla de provincias tabuladas.
 CREATE TABLE IF NOT EXISTS provinces (
-	id_province INT NOT NULL AUTO_INCREMENT,
+    id_province INT NOT NULL AUTO_INCREMENT,
     id_country INT NOT NULL,
     province_name VARCHAR (10) NOT NULL,
     
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS provinces (
 
 #Tabla de ciudades tabuladas.
 CREATE TABLE IF NOT EXISTS cities (
-	id_city INT NOT NULL AUTO_INCREMENT,
+    id_city INT NOT NULL AUTO_INCREMENT,
     id_province INT NOT NULL,
     city_name VARCHAR (10) NOT NULL,
     
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS cities (
 
 #Tabla de métodos de pago tabulados.
 CREATE TABLE IF NOT EXISTS payment_methods (
-	id_payment_method INT NOT NULL AUTO_INCREMENT,
+    id_payment_method INT NOT NULL AUTO_INCREMENT,
     payment_method VARCHAR (10) NOT NULL,
     
     PRIMARY KEY (id_payment_method)
@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS payment_methods (
 
 #Tabla de cantidad de cuotas tabuladas.
 CREATE TABLE IF NOT EXISTS total_installments (
-	id_total_installments INT NOT NULL AUTO_INCREMENT,
+    id_total_installments INT NOT NULL AUTO_INCREMENT,
     total_installments INT NOT NULL,
     
     PRIMARY KEY (id_total_installments)
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS total_installments (
 
 #Tabla de afiliados.
 CREATE TABLE IF NOT EXISTS affiliates (
-	id_affiliate INT NOT NULL AUTO_INCREMENT,
+    id_affiliate INT NOT NULL AUTO_INCREMENT,
     id_gender INT NOT NULL,
     id_marital_status INT NOT NULL,
     id_city INT NOT NULL,
@@ -95,7 +95,7 @@ CREATE TABLE IF NOT EXISTS affiliates (
 
 #Tabla de clientes.
 CREATE TABLE IF NOT EXISTS customers (
-	id_customer INT NOT NULL AUTO_INCREMENT,
+    id_customer INT NOT NULL AUTO_INCREMENT,
     first_name VARCHAR (20) NOT NULL,
     last_name VARCHAR (20) NOT NULL,
     dni INT NOT NULL,
@@ -106,7 +106,7 @@ CREATE TABLE IF NOT EXISTS customers (
 
 #Tabla de compras.
 CREATE TABLE IF NOT EXISTS trades (
-	id_trade INT NOT NULL AUTO_INCREMENT,
+    id_trade INT NOT NULL AUTO_INCREMENT,
     id_customer INT NOT NULL,
     id_affiliate INT NOT NULL,
     id_payment_method INT NOT NULL,
@@ -124,7 +124,7 @@ CREATE TABLE IF NOT EXISTS trades (
 
 #Tabla de rifas.
 CREATE TABLE IF NOT EXISTS raffles (
-	id_raffle INT NOT NULL AUTO_INCREMENT,
+    id_raffle INT NOT NULL AUTO_INCREMENT,
     id_trade INT NOT NULL,
     serial_no INT NOT NULL,
     price INT NOT NULL DEFAULT 150,
@@ -138,7 +138,7 @@ CREATE TABLE IF NOT EXISTS raffles (
 #Tabla de grupos.
 #Como GROUP es una palabra reservada, a los grupos los llamamos 'teams'.
 CREATE TABLE IF NOT EXISTS teams (
-	id_team INT NOT NULL AUTO_INCREMENT,
+    id_team INT NOT NULL AUTO_INCREMENT,
     sell_objective INT NOT NULL,
     
     PRIMARY KEY (id_team)
@@ -146,7 +146,7 @@ CREATE TABLE IF NOT EXISTS teams (
 
 #Tabla de registro histórico de grupos.
 CREATE TABLE IF NOT EXISTS teams_record (
-	id_teams_record INT NOT NULL AUTO_INCREMENT,
+    id_teams_record INT NOT NULL AUTO_INCREMENT,
     id_affiliate INT NOT NULL,
     id_team INT NOT NULL,
     entry_date DATE NOT NULL,
@@ -159,7 +159,7 @@ CREATE TABLE IF NOT EXISTS teams_record (
 
 #Tabla de cuotas.
 CREATE TABLE IF NOT EXISTS installments (
-	id_installment INT NOT NULL AUTO_INCREMENT,
+    id_installment INT NOT NULL AUTO_INCREMENT,
     id_raffle INT NOT NULL,
     expiring_date DATE NOT NULL,
     
@@ -170,7 +170,7 @@ CREATE TABLE IF NOT EXISTS installments (
 
 #Tabla de pagos.
 CREATE TABLE IF NOT EXISTS payments (
-	id_payment INT NOT NULL AUTO_INCREMENT,
+    id_payment INT NOT NULL AUTO_INCREMENT,
     id_installment INT NOT NULL,
     pay_date DATE,
     
