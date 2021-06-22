@@ -22,7 +22,7 @@ FROM
             t.id_team AS GRUPO,
             COUNT(tr.id_trade) AS CANTRIFAS,
             MAX(purchase_date) AS FECHAULT,
-            COUNT(DISTINCT p.id_payment) AS CANTPAGOS
+            COUNT(p.id_payment) AS CANTPAGOS
         FROM
             teams AS t
         CROSS JOIN
@@ -47,12 +47,12 @@ FROM
         ORDER BY
             a.id_affiliate,
             GRUPO
-    ) query2
+    ) modified_query2
 WHERE
     CANTRIFAS != 0
 GROUP BY
     NOMBREAFILIADO,
-    APELLIDOAFILIADO;
+    APELLIDOAFILIADO
 
 /*
 Query 2/3 TP2

@@ -85,7 +85,6 @@ CREATE TABLE IF NOT EXISTS affiliates (
     birth_date DATE NOT NULL,
     current_coursing_year INT NOT NULL,
     checkin_date DATE NOT NULL,
-    current_team INT NOT NULL,
     
     PRIMARY KEY (id_affiliate),
 
