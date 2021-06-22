@@ -1,3 +1,5 @@
+# TP2 SISTEMAS DE GESTIÓN DE BASES DE DATOS - GRUPO 10 - TEMA 5
+
 USE raffles_management_db;
 
 #Llenado de tabla de géneros.

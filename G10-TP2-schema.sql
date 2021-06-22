@@ -1,3 +1,5 @@
+# TP2 SISTEMAS DE GESTIÓN DE BASES DE DATOS - GRUPO 10 - TEMA 5
+
 #Creación de la base de datos de pruebas.
 CREATE DATABASE raffles_management_db;
 
