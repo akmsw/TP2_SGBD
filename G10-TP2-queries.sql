@@ -29,18 +29,22 @@ Ordenar por afiliado y por grupo según el criterio de recaudación total en el 
 SELECT
 	a.first_name AS NOMBREAFILIADO,
     a.last_name AS APELLIDOAFILIADO,
-	tea.id_team,
-    COUNT(DISTINCT t.id_trade) AS CANTRIFAS
+	t.id_team AS GRUPO,
+    COUNT(tr.id_trade) AS CANTRIFAS
 FROM
-	affiliates AS a
-JOIN
-	trades AS t
-	USING(id_affiliate)
+	teams AS t
 CROSS JOIN
-	teams AS tea
+	affiliates AS a
+LEFT JOIN
+	trades AS tr
+    ON  a.id_affiliate = tr.id_affiliate AND
+        tr.belonging_group = t.id_team
 GROUP BY
 	a.id_affiliate,
-    tea.id_team
+    t.id_team
+ORDER BY
+	a.id_affiliate,
+    GRUPO
 
 /*
 Query 3/3 TP2
