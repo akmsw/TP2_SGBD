@@ -31,14 +31,14 @@ FROM
             trades AS tr
             ON  a.id_affiliate = tr.id_affiliate AND
                 tr.belonging_group = t.id_team
-		JOIN
-			raffles AS r
+	JOIN
+	    raffles AS r
             USING(id_trade)
-		JOIN
-			installments AS i
+	JOIN
+	    installments AS i
             USING(id_raffle)
-		JOIN
-			payments AS p
+	JOIN
+	    payments AS p
             USING(id_installment)
         GROUP BY
             a.id_affiliate,
@@ -63,23 +63,23 @@ Ordenar por afiliado y por grupo según el criterio de recaudación total en el 
 */
 
 SELECT
-	a.first_name AS NOMBREAFILIADO,
+    a.first_name AS NOMBREAFILIADO,
     a.last_name AS APELLIDOAFILIADO,
-	t.id_team AS GRUPO,
+    t.id_team AS GRUPO,
     COUNT(tr.id_trade) AS CANTRIFAS
 FROM
-	teams AS t
+    teams AS t
 CROSS JOIN
-	affiliates AS a
+    affiliates AS a
 LEFT JOIN
-	trades AS tr
+    trades AS tr
     ON  a.id_affiliate = tr.id_affiliate AND
         tr.belonging_group = t.id_team
 GROUP BY
-	a.id_affiliate,
+    a.id_affiliate,
     t.id_team
 ORDER BY
-	a.id_affiliate,
+    a.id_affiliate,
     GRUPO;
 
 /*
@@ -122,32 +122,32 @@ JOIN
     ) AS customer_last_purchase_date
     ON c.id_customer = customer_idLPD
 JOIN
-	(
-		# Busco los datos de los clientes que deban más de 3 cuotas vencidas.
-		SELECT
-			DISTINCT c.id_customer AS customer_idUEI,
-			COUNT(p.id_payment) AS unpayed_expired_installments
-		FROM
-			customers AS c
-		JOIN
-			trades AS t
-			USING(id_customer)
-		JOIN
-			raffles AS r
-			USING(id_trade)
-		JOIN
-			installments AS i
-			USING(id_raffle)
-		JOIN
-			payments AS p
-			USING(id_installment)
-		WHERE
-			p.pay_date IS NULL AND
-			i.expiring_date < NOW()
-		GROUP BY
-			c.id_customer
-		HAVING
-			unpayed_expired_installments > 3
+    (
+	# Busco los datos de los clientes que deban más de 3 cuotas vencidas.
+	SELECT
+	    DISTINCT c.id_customer AS customer_idUEI,
+	    COUNT(p.id_payment) AS unpayed_expired_installments
+	FROM
+	    customers AS c
+	JOIN
+	    trades AS t
+	    USING(id_customer)
+	JOIN
+	    raffles AS r
+	    USING(id_trade)
+	JOIN
+	    installments AS i
+    	    USING(id_raffle)
+	JOIN
+	    payments AS p
+	    USING(id_installment)
+	WHERE
+	    p.pay_date IS NULL AND
+	    i.expiring_date < NOW()
+	GROUP BY
+	    c.id_customer
+	HAVING
+	    unpayed_expired_installments > 3
     ) AS customer_unpayed_expired_installments
     ON c.id_customer = customer_idUEI
 GROUP BY
